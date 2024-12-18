@@ -19,6 +19,14 @@
     return a * b
   }
 
+  function divisao(a, b) {
+    if (b === 0) {
+      return 0
+    }
+    
+    return a / b
+  }
+
   function calculaValores() {
     const operacao = estado.operador
     const numeroA = Number(estado.numA)
@@ -29,6 +37,8 @@
         return multiplicar(numeroA,numeroB)
       case 'subtrair':
         return subtrair(numeroA, numeroB)
+      case 'divisão':
+        return divisao(numeroA, numeroB)
       default:
         return somar(numeroA, numeroB)
     }
@@ -47,6 +57,7 @@
       <option value="somar">+</option>
       <option value="subtrair">-</option>
       <option value="multiplicar">*</option>
+      <option value="divisão">/</option>
     </select>
     <input @keyup="evento => estado.numB = evento.target.value" type="number">
     <span style="margin-left: 8px;">=</span>
